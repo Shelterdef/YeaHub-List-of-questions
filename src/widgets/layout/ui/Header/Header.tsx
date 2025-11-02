@@ -1,3 +1,4 @@
+// src\widgets\layout\ui\Header\Header.tsx
 import { Link } from "react-router-dom";
 
 export const Header: React.FC = () => {
