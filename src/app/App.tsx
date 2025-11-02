@@ -2,7 +2,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { GlobalLoader } from "@/shared/ui/";
-import "./styles/normalize.scss";
+import "../shared/assets/styles/normalize.scss";
 
 // Lazy imports с явным указанием named exports
 const Layout = lazy(() =>

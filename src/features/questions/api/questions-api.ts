@@ -4,7 +4,7 @@ import {
   QuestionsResponse,
   QuestionsFilter,
   Question,
-} from "@/entities/question";
+} from "@/entities/question/model/types";
 
 export const questionsApi = createApi({
   reducerPath: "questionsApi",

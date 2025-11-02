@@ -7,7 +7,7 @@ export const Header: React.FC = () => {
       <div className="header-logo">
         <Link to="/">
           <img
-            src="/src/assets/logo.avif"
+            src="/src/shared/assets/img/logo.avif"
             className="logo"
             style={{
               width: "33px",

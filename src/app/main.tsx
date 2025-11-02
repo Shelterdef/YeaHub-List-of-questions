@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { App, store } from "@/app";
 import { ErrorBoundary } from "@/shared/ui";
-import "./styles/index.scss";
+import "../shared/assets/styles/index.scss";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

@@ -1,7 +1,7 @@
 // src/features/questions/lib/useQuestionsFilter.ts
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/store";
-import { QuestionsFilter } from "@/entities/question";
+import { QuestionsFilter } from "@/entities/question/model/types";
 
 export const useQuestionsFilter = (): QuestionsFilter => {
   const selectedSpecialization = useSelector(

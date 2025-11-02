@@ -1,6 +1,6 @@
 // src/entities/questions/ui/QuestionCard.tsx
 import { Link } from "react-router-dom";
-import { Question } from "@/entities/question";
+import { Question } from "@/entities/question/model/types";
 import { useState } from "react";
 import cl from "./questionCard.module.scss";
 import { QuestionInfo } from "@/shared/ui";
@@ -57,9 +57,14 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
           </div>
 
           <div className={cl.linkBox}>
-            <Link to={`/questions/${question.id}`} className={cl.link}>
+            <Link
+              to={`/questions/${question.id}`}
+              state={{ question }} // ← Добавьте эту строку
+              className={cl.link}
+            >
               Подробнее
             </Link>
+
             <svg
               width="24"
               height="24"

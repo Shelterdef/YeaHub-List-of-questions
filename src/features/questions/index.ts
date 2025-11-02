@@ -4,4 +4,4 @@ export {
   useGetPublicQuestionsQuery,
   useLazyGetPublicQuestionsQuery,
 } from "./api/questions-api";
-export type { QuestionsFilter } from "@/entities/question";
+export type { QuestionsFilter } from "@/entities/question/model/types";
