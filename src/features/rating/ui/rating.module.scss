@@ -1,0 +1,35 @@
+// src/features/rating/ui/rating.module.scss
+.listRating {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: start;
+  flex-wrap: wrap;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  cursor: pointer;
+  border: 1px solid #a3a3a3;
+  border-radius: 12px;
+  padding: 0px 12px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  justify-content: center;
+
+  &:hover {
+    color: white;
+    background-color: #5533ff;
+  }
+}
+
+.ratingSelected {
+  border-color: #5533ff;
+
+  &:hover {
+    background-color: #4528d4;
+    color: white;
+  }
+}

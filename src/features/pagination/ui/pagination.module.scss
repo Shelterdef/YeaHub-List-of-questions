@@ -1,0 +1,78 @@
+// src/features/pagination/ui/pagination.module.scss
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  gap: 4px;
+}
+
+.listPages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: 21px;
+  height: 21px;
+  font-size: 14px;
+  background-color: hsla(0, 0%, 100%, 1);
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 2px 6px;
+}
+
+.listPagesActiv {
+  background-color: #6a0bff;
+  color: hsla(0, 0%, 100%, 1);
+  border-radius: 3px;
+}
+
+.threeDots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: 21px;
+  height: 21px;
+  font-size: 14px;
+  background-color: hsla(0, 0%, 100%, 1);
+  padding: 0;
+  transform: translateY(-1px);
+  color: #a3a3a3;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #6a0bff;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  background-color: hsla(0, 0%, 100%, 1);
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color: #6a0bff;
+
+    svg path {
+      fill: white;
+    }
+  }
+}
+
+.arrowDisabled {
+  border-color: #a3a3a3;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: hsla(0, 0%, 100%, 1);
+
+    svg path {
+      fill: #a3a3a3;
+    }
+  }
+}

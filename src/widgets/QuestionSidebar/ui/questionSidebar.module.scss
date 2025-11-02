@@ -1,0 +1,78 @@
+// src\widgets\QuestionSidebar\ui\questionSidebar.module.scss
+
+.maxSideBarHeight {
+  max-height: 330px;
+}
+
+.sections {
+  color: hsla(0, 0%, 28%, 1);
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 8px;
+  margin-top: 16px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.skillsList {
+  display: flex;
+  gap: 6px;
+}
+
+.skillItem {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  cursor: pointer;
+  border: 1px solid #a3a3a3;
+  border-radius: 12px;
+  padding: 3px 12px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: white;
+    background-color: #5533ff;
+  }
+}
+
+.skillSelected {
+  border-color: #5533ff;
+
+  &:hover {
+    background-color: #4528d4;
+    color: white;
+  }
+}
+
+.keywordsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.keyword {
+  color: #6a0bff;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.linkContainer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.backLink {
+  color: #6a0bff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
