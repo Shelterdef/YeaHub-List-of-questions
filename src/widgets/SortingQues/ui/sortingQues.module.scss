@@ -47,23 +47,3 @@
     box-shadow: none;
   }
 }
-
-.linkTG {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: start;
-  border: 1px solid #a3a3a3;
-  border-radius: 12px;
-  padding: 3px 12px;
-  font-size: 16px;
-  margin-top: 24px;
-
-  p {
-    margin-left: 5px;
-    color: #303030;
-    font-size: 16px;
-    margin: 0;
-    padding: 10px 12px;
-  }
-}

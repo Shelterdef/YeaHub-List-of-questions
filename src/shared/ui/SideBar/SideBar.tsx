@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 
 interface SideBarProps {
   children: ReactNode;
-  className?: string; // Добавляем опциональный пропс className
+  className?: string;
 }
 
 export const SideBar: React.FC<SideBarProps> = ({ children, className }) => {

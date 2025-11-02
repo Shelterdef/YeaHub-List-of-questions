@@ -68,15 +68,3 @@ export interface QuestionsFilter {
   order?: "ASC" | "DESC";
   random?: boolean;
 }
-
-export type QuestionData = Omit<
-  Question,
-  | "status"
-  | "createdById"
-  | "updatedById"
-  | "questionSpecializations"
-  | "createdAt"
-  | "updatedAt"
-  | "createdBy"
-  | "updatedBy"
->;
