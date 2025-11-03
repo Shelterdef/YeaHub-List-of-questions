@@ -1,4 +1,4 @@
-// src/entities/question.ts
+// src\entities\question\model\types.ts
 export interface QuestionSpecialization {
   id: number;
   title: string;
