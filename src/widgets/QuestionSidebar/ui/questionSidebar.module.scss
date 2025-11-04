@@ -47,17 +47,22 @@
   }
 }
 
-.keywordsList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
+// src/widgets/QuestionSidebar/ui/questionSidebar.module.scss
+// Добавляем стили для кнопок
 .keyword {
   color: #6a0bff;
   font-size: 16px;
   font-weight: 400;
   text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+  }
 }
 
 .linkContainer {

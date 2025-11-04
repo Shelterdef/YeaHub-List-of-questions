@@ -1,0 +1,51 @@
+// src/shared/ui/SkillBadge/skillBadge.module.scss
+.skillBadge {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #a3a3a3;
+  border-radius: 12px;
+  padding: 3px 12px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  background: white;
+
+  &:hover {
+    color: white;
+    background-color: #5533ff;
+  }
+
+  &.selected {
+    border-color: #5533ff;
+
+    &:hover {
+      background-color: #4528d4;
+      color: white;
+    }
+  }
+
+  &.small {
+    height: 32px;
+    font-size: 14px;
+    padding: 2px 8px;
+  }
+
+  &.medium {
+    height: 42px;
+  }
+
+  &.large {
+    height: 48px;
+    font-size: 18px;
+  }
+}
+
+.image {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+.title {
+  white-space: nowrap;
+}

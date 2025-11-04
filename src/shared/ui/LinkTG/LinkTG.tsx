@@ -1,4 +1,4 @@
-// src\shared\ui\QuestionInfo\ui\QuestionInfo.tsx
+// src\shared\ui\LinkTG\LinkTG.tsx
 import cl from "./LinkTG.module.scss";
 
 export const LinkTG: React.FC = () => {

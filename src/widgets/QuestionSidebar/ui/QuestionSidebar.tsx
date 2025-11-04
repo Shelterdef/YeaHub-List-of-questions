@@ -1,7 +1,8 @@
-// src\widgets\QuestionSidebar\ui\QuestionSidebar.tsx
+// src/widgets/QuestionSidebar/ui/QuestionSidebar.tsx
+import { SkillBadge } from "@/shared/ui/SkillBadge/SkillBadge";
 import cl from "./questionSidebar.module.scss";
-import { Link } from "react-router-dom";
 import { LinkTG, QuestionInfo, SideBar } from "@/shared/ui";
+import { useKeywordSearch } from "@/features/search/lib/useKeywordSearch";
 
 interface QuestionSidebarProps {
   rate: number;
@@ -16,6 +17,8 @@ export const QuestionSidebar: React.FC<QuestionSidebarProps> = ({
   questionSkills,
   keywords,
 }) => {
+  const { handleKeywordSearch } = useKeywordSearch();
+
   return (
     <SideBar className={cl.maxSideBarHeight}>
       <div>
@@ -25,25 +28,30 @@ export const QuestionSidebar: React.FC<QuestionSidebarProps> = ({
         <p className={cl.sections}>Навыки</p>
         <div className={cl.skillsList}>
           {questionSkills.map((skill) => (
-            <div
+            <SkillBadge
               key={skill.id}
-              className={`${cl.skillItem} ${cl.skillSelected}`}
-            >
-              {skill.title}
-            </div>
+              skill={skill}
+              isSelected={true}
+              showImage={false}
+              size="small"
+            />
           ))}
         </div>
 
         <p className={cl.sections}>Ключевые слова</p>
         <div className={cl.keywordsList}>
           {keywords.map((keyword, index) => (
-            <Link to="/" key={index} className={cl.keyword}>
+            <button
+              key={index}
+              className={cl.keyword}
+              onClick={() => handleKeywordSearch(keyword)}
+            >
               #{keyword}
-            </Link>
+            </button>
           ))}
         </div>
 
-        <LinkTG></LinkTG>
+        <LinkTG />
       </div>
     </SideBar>
   );

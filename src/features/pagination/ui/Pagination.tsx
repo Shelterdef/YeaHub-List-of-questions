@@ -1,4 +1,4 @@
-// src/features/pagination/ui/Pagination.tsx (ОЧИЩЕННАЯ ВЕРСИЯ)
+// src\features\pagination\ui\Pagination.tsx
 import { usePaginationLogic } from "../lib/usePaginationLogic";
 import cl from "./pagination.module.scss";
 

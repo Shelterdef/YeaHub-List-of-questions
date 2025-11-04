@@ -1,4 +1,4 @@
-// src\widgets\container\ui\Container.tsx
+// src\shared\ui\Container\Container.tsx
 import cl from "./container.module.scss";
 import { ReactNode } from "react";
 

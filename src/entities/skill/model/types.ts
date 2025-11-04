@@ -1,4 +1,4 @@
-// src/entities/skill.ts
+// src\entities\skill\model\types.ts
 export interface Skill {
   id: number;
   title: string;

@@ -1,4 +1,4 @@
-// src/entities/specialization/model/types.ts
+// src\entities\specialization\model\types.ts
 
 export interface Specialization {
   id: number;
