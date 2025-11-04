@@ -58,5 +58,3 @@ export const SkillBadge: React.FC<SkillBadgeProps> = memo(
     );
   }
 );
-
-SkillBadge.displayName = "SkillBadge";

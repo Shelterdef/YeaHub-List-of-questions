@@ -12,7 +12,7 @@ export const specializationApi = createApi({
     getSpecializations: builder.query<SpecializationsResponse, void>({
       query: () => "specializations",
       providesTags: ["Specialization"],
-      keepUnusedDataFor: 300, // 5 минут - специализации редко меняются
+      keepUnusedDataFor: 300,
     }),
   }),
 });
