@@ -5,8 +5,8 @@
   "type": "module",
   "homepage": "https://Shelterdef.github.io/YeaHub-List-of-questions", 
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+     "dev": "vite",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
