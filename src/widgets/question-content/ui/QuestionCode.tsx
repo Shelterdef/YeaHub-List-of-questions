@@ -1,12 +1,13 @@
-// src\widgets\question-content\ui\QuestionCode.tsx
+// src/widgets/question-content/ui/QuestionCode.tsx
 import { Container } from "@/shared/ui";
-import cl from "@/pages/question-page/ui/questionPage.module.scss";
+import cl from "./questionContent.module.scss"; // ← Локальные стили
+import { memo } from "react";
 
 interface QuestionCodeProps {
   code?: string;
 }
 
-export const QuestionCode: React.FC<QuestionCodeProps> = ({ code }) => {
+export const QuestionCode: React.FC<QuestionCodeProps> = memo(({ code }) => {
   if (!code) return null;
 
   return (
@@ -16,4 +17,6 @@ export const QuestionCode: React.FC<QuestionCodeProps> = ({ code }) => {
       </pre>
     </Container>
   );
-};
+});
+
+QuestionCode.displayName = "QuestionCode";

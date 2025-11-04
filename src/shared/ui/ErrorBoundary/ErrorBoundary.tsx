@@ -1,8 +1,10 @@
-// src/shared/ui/ErrorBoundary.tsx
+// src/shared/ui/ErrorBoundary/ErrorBoundary.tsx
 import React from "react";
+import cl from "./errorBoundary.module.scss";
 
 interface Props {
   children: React.ReactNode;
+  fallback?: React.ComponentType<{ error?: Error; onRetry: () => void }>;
 }
 
 interface State {
@@ -24,29 +26,34 @@ export class ErrorBoundary extends React.Component<Props, State> {
     console.error("ErrorBoundary caught an error:", error, errorInfo);
   }
 
+  handleRetry = () => {
+    this.setState({ hasError: false, error: undefined });
+    window.location.reload();
+  };
+
   render() {
     if (this.state.hasError) {
+      const { fallback: FallbackComponent } = this.props;
+
+      if (FallbackComponent) {
+        return (
+          <FallbackComponent
+            error={this.state.error}
+            onRetry={this.handleRetry}
+          />
+        );
+      }
+
       return (
-        <div
-          style={{
-            padding: "40px",
-            textAlign: "center",
-            fontFamily: "var(--font-family)",
-          }}
-        >
-          <h1>Что-то пошло не так 😔</h1>
-          <p>Попробуйте обновить страницу</p>
+        <div className={cl.errorBoundary}>
+          <h1 className={cl.title}>Что-то пошло не так 😔</h1>
+          <p className={cl.message}>
+            {this.state.error?.message || "Произошла непредвиденная ошибка"}
+          </p>
           <button
-            onClick={() => window.location.reload()}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "var(--purple-700)",
-              color: "white",
-              border: "none",
-              borderRadius: "8px",
-              cursor: "pointer",
-              marginTop: "20px",
-            }}
+            className={cl.reloadButton}
+            onClick={this.handleRetry}
+            type="button"
           >
             Обновить страницу
           </button>

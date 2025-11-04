@@ -1,35 +1,48 @@
-// src\widgets\question-content\ui\QuestionAnswer.tsx
+// src/widgets/question-content/ui/QuestionAnswer.tsx
 import { Container } from "@/shared/ui";
-import cl from "@/pages/question-page/ui/questionPage.module.scss";
+import cl from "./questionContent.module.scss"; // ← Локальные стили
+import { memo, useMemo } from "react";
 
 interface QuestionAnswerProps {
   shortAnswer: string;
   longAnswer: string;
 }
 
-export const QuestionAnswer: React.FC<QuestionAnswerProps> = ({
-  shortAnswer,
-  longAnswer,
-}) => {
-  return (
-    <>
-      <Container>
-        <article>
-          <h2 className={cl.sectionTitle}>Краткий ответ</h2>
-          <div
-            className={cl.shortAnswer}
-            dangerouslySetInnerHTML={{ __html: shortAnswer }}
-          />
-        </article>
-      </Container>
+export const QuestionAnswer: React.FC<QuestionAnswerProps> = memo(
+  ({ shortAnswer, longAnswer }) => {
+    // Мемоизируем объекты для dangerouslySetInnerHTML
+    const shortAnswerHtml = useMemo(
+      () => ({ __html: shortAnswer }),
+      [shortAnswer]
+    );
 
-      <Container>
-        <h2 className={cl.sectionTitle}>Подробный ответ</h2>
-        <div
-          className={cl.longAnswer}
-          dangerouslySetInnerHTML={{ __html: longAnswer }}
-        />
-      </Container>
-    </>
-  );
-};
+    const longAnswerHtml = useMemo(
+      () => ({ __html: longAnswer }),
+      [longAnswer]
+    );
+
+    return (
+      <>
+        <Container>
+          <article>
+            <h2 className={cl.sectionTitle}>Краткий ответ</h2>
+            <div
+              className={cl.shortAnswer}
+              dangerouslySetInnerHTML={shortAnswerHtml}
+            />
+          </article>
+        </Container>
+
+        <Container>
+          <h2 className={cl.sectionTitle}>Подробный ответ</h2>
+          <div
+            className={cl.longAnswer}
+            dangerouslySetInnerHTML={longAnswerHtml}
+          />
+        </Container>
+      </>
+    );
+  }
+);
+
+QuestionAnswer.displayName = "QuestionAnswer";

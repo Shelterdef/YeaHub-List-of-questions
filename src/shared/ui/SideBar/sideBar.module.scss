@@ -1,8 +1,14 @@
-// src\shared\ui\SideBar\sideBar.module.scss
+// src/widgets/sideBar/ui/sideBar.module.scss
 .mainSideBar {
-  width: 320px;
+  width: 360px;
   min-height: 200px;
-  background-color: hsla(0, 0%, 100%, 1);
+  background-color: white;
   border-radius: 12px;
   padding: 24px;
+  box-sizing: border-box;
+}
+
+.sticky {
+  position: sticky;
+  top: 24px;
 }

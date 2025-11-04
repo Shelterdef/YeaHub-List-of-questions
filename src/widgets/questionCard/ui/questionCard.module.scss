@@ -1,15 +1,18 @@
-// src\widgets\questionCard\ui\questionCard.module.scss
+// src/entities/questions/ui/questionCard.module.scss
 .question {
   width: 100%;
   background-color: hsla(0, 0%, 100%, 1);
   border-radius: 12px;
   margin-bottom: 16px;
   box-shadow: 0 4px 10px 0 #6a63761a;
+  contain: layout style;
+  will-change: transform;
 }
 
 .card {
   display: flex;
   flex-direction: column;
+  backface-visibility: hidden;
 }
 
 .headerButton {
@@ -67,6 +70,7 @@
   transition: max-height 0.3s ease;
   background-color: hsla(0, 0%, 100%, 1);
   border-radius: 0 0 12px 12px;
+  padding: 0 24px 0 24px;
 
   &.contentOpen {
     max-height: 500px;

@@ -1,6 +1,6 @@
 // src\shared\ui\index.ts
 export { SideBar } from "./SideBar/SideBar";
-export { QuestionInfo } from "./QuestionInfo/QuestionInfo";
+export { QuestionRateComplexity } from "./QuestionRateComplexity/QuestionRateComplexity";
 export { Container } from "./Container/Container";
 export { LinkTG } from "./LinkTG/LinkTG";
 export { GlobalLoader } from "./GlobalLoader/GlobalLoader";

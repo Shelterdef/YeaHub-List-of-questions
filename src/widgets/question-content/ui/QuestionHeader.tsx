@@ -1,6 +1,7 @@
-// src\widgets\question-content\ui\QuestionHeader.tsx
+// src/widgets/question-content/ui/QuestionHeader.tsx
 import { Container } from "@/shared/ui";
-import cl from "@/pages/question-page/ui/questionPage.module.scss";
+import cl from "./questionContent.module.scss"; // ← Локальные стили
+import { memo } from "react";
 
 interface QuestionHeaderProps {
   title: string;
@@ -8,20 +9,27 @@ interface QuestionHeaderProps {
   imageSrc?: string;
 }
 
-export const QuestionHeader: React.FC<QuestionHeaderProps> = ({
-  title,
-  description,
-  imageSrc,
-}) => {
-  return (
-    <Container>
-      <div>
-        {imageSrc && <img src={imageSrc} alt={title} className={cl.image} />}
+export const QuestionHeader: React.FC<QuestionHeaderProps> = memo(
+  ({ title, description, imageSrc }) => {
+    return (
+      <Container>
         <div>
-          <h1>{title}</h1>
-          <p>{description}</p>
+          {imageSrc && (
+            <img
+              src={imageSrc}
+              alt={title}
+              className={cl.image}
+              loading="lazy" // ← Ленивая загрузка изображений
+            />
+          )}
+          <div>
+            <h1>{title}</h1>
+            <p>{description}</p>
+          </div>
         </div>
-      </div>
-    </Container>
-  );
-};
+      </Container>
+    );
+  }
+);
+
+QuestionHeader.displayName = "QuestionHeader";

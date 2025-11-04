@@ -1,4 +1,4 @@
-// src/widgets/sideBar/ui/SideBar.tsx
+// src\shared\ui\LinkToBack\LinkToBack.tsx
 import cl from "./linkToBack.module.scss";
 import { Link } from "react-router-dom";
 

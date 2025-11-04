@@ -1,3 +1,4 @@
+// src/shared/ui/Search/search.module.scss
 .searchBlock {
   display: flex;
   align-items: center;
@@ -9,16 +10,22 @@
   background-color: white;
   width: 90%;
   max-width: 320px;
-  transition: border-color 0.2s ease;
+  transition: all 0.2s ease;
+  contain: layout style;
 
   &:focus-within {
     border: 1px solid #5533ff;
+  }
+
+  &:hover:not(:focus-within) {
+    border-color: #c0c0c0;
   }
 }
 
 .icon {
   flex-shrink: 0;
   color: #a3a3a3;
+  transition: color 0.2s ease;
 }
 
 .search {
@@ -28,13 +35,24 @@
   height: 100%;
   font-size: 16px;
   background: transparent;
+  color: #303030;
 
   &::placeholder {
     color: #a3a3a3;
+    transition: color 0.2s ease;
   }
 
   &:focus {
     outline: none;
     box-shadow: none;
+
+    &::placeholder {
+      color: #808080; // ← Плейсхолдер темнее при фокусе
+    }
+  }
+
+  &:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: #303030;
   }
 }

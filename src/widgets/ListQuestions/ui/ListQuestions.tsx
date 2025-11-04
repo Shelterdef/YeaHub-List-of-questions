@@ -4,8 +4,9 @@ import { ListQuestionsLoading } from "./ListQuestionsLoading";
 import { ListQuestionsError } from "./ListQuestionsError";
 import { ListQuestionsEmpty } from "./ListQuestionsEmpty";
 import { ListQuestionsContent } from "./ListQuestionsContent";
+import { memo, useMemo } from "react";
 
-export const ListQuestions: React.FC = () => {
+export const ListQuestions: React.FC = memo(() => {
   const {
     response,
     isLoading,
@@ -13,6 +14,27 @@ export const ListQuestions: React.FC = () => {
     selectedSpecialization,
     handleResetFilters,
   } = useListQuestions();
+
+  // Мемоизируем вычисления
+  const questions = useMemo(() => response?.data || [], [response?.data]);
+  const totalPages = useMemo(
+    () => Math.ceil((response?.total || 0) / 10),
+    [response?.total]
+  );
+
+  const headerText = useMemo(
+    () =>
+      selectedSpecialization
+        ? `Вопросы по ${selectedSpecialization.title}`
+        : `Вопросы`,
+    [selectedSpecialization]
+  );
+
+  // Мемоизируем колбэк для Empty состояния
+  const handleResetFiltersMemoized = useMemo(
+    () => handleResetFilters,
+    [handleResetFilters]
+  );
 
   // Состояние загрузки
   if (isLoading) {
@@ -24,17 +46,9 @@ export const ListQuestions: React.FC = () => {
     return <ListQuestionsError />;
   }
 
-  const questions = response?.data || [];
-  const totalItems = response?.total || 0;
-  const totalPages = Math.ceil(totalItems / 10);
-
-  const headerText = selectedSpecialization
-    ? `Вопросы по ${selectedSpecialization.title}`
-    : `Вопросы`;
-
   // Пустой список
   if (questions.length === 0) {
-    return <ListQuestionsEmpty onResetFilters={handleResetFilters} />;
+    return <ListQuestionsEmpty onResetFilters={handleResetFiltersMemoized} />;
   }
 
   // Успешная загрузка
@@ -45,4 +59,6 @@ export const ListQuestions: React.FC = () => {
       headerText={headerText}
     />
   );
-};
+});
+
+ListQuestions.displayName = "ListQuestions";

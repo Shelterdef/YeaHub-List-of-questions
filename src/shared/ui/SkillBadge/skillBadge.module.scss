@@ -9,6 +9,8 @@
   font-size: 16px;
   transition: all 0.2s ease;
   background: white;
+  contain: layout style;
+  will-change: transform;
 
   &:hover {
     color: white;
@@ -22,21 +24,6 @@
       background-color: #4528d4;
       color: white;
     }
-  }
-
-  &.small {
-    height: 32px;
-    font-size: 14px;
-    padding: 2px 8px;
-  }
-
-  &.medium {
-    height: 42px;
-  }
-
-  &.large {
-    height: 48px;
-    font-size: 18px;
   }
 }
 

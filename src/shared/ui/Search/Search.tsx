@@ -1,36 +1,59 @@
-// src\shared\ui\Search\Search.tsx
+// src/shared/ui/Search/Search.tsx
 import cl from "./search.module.scss";
 import { useSearch } from "@/features/search";
+import { SearchIcon } from "@/shared/assets/svg/SearchIcon";
+import { memo, useCallback, useState, useEffect } from "react";
+import { useDebouncedCallback } from "use-debounce";
 
-export const Search: React.FC = () => {
+export const Search: React.FC = memo(() => {
   const { searchQuery, handleSearchChange } = useSearch();
+  const [localValue, setLocalValue] = useState(searchQuery);
+
+  // Debounce с задержкой 300ms
+  const debouncedSearch = useDebouncedCallback((value: string) => {
+    handleSearchChange(value);
+  }, 300);
+
+  useEffect(() => {
+    setLocalValue(searchQuery);
+  }, [searchQuery]);
+
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      setLocalValue(value);
+      debouncedSearch(value);
+    },
+    [debouncedSearch]
+  );
+
+  const handleInputKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === "Escape") {
+        setLocalValue("");
+        debouncedSearch("");
+        debouncedSearch.flush(); // Немедленно применяем очистку
+      }
+    },
+    [debouncedSearch]
+  );
+
   return (
     <div className={cl.searchBlock}>
-      <svg
-        className={cl.icon}
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        color="#a3a3a3"
-      >
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M9.58366 2.29297C5.55658 2.29297 2.29199 5.55756 2.29199 9.58464C2.29199 13.6117 5.55658 16.8763 9.58366 16.8763C13.6107 16.8763 16.8753 13.6117 16.8753 9.58464C16.8753 5.55756 13.6107 2.29297 9.58366 2.29297ZM1.04199 9.58464C1.04199 4.8672 4.86623 1.04297 9.58366 1.04297C14.3011 1.04297 18.1253 4.8672 18.1253 9.58464C18.1253 11.7184 17.3429 13.6694 16.0494 15.1665L18.7756 17.8927C19.0197 18.1368 19.0197 18.5325 18.7756 18.7766C18.5315 19.0207 18.1358 19.0207 17.8917 18.7766L15.1655 16.0504C13.6684 17.3439 11.7174 18.1263 9.58366 18.1263C4.86623 18.1263 1.04199 14.3021 1.04199 9.58464Z"
-          fill="currentColor"
-        ></path>
-      </svg>
-
+      <SearchIcon className={cl.icon} />
       <input
         className={cl.search}
         type="text"
-        placeholder="Введите вопрос"
+        placeholder="Введите вопрос..."
         name="search"
-        value={searchQuery}
-        onChange={(e) => handleSearchChange(e.target.value)}
+        value={localValue}
+        onChange={handleInputChange}
+        onKeyDown={handleInputKeyDown}
+        aria-label="Поиск вопросов"
+        enterKeyHint="search"
       />
     </div>
   );
-};
+});
+
+Search.displayName = "Search";

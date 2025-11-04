@@ -1,4 +1,4 @@
-// src\shared\ui\LinkTG\linkTG.module.scss
+// src/shared/ui/LinkTG/linkTG.module.scss
 .linkTG {
   display: flex;
   flex-direction: row;
@@ -9,6 +9,9 @@
   padding: 3px 12px;
   font-size: 16px;
   margin-top: 24px;
+  transition: all 0.2s ease;
+  contain: layout style;
+  cursor: pointer;
 
   p {
     margin-left: 5px;
@@ -16,5 +19,22 @@
     font-size: 16px;
     margin: 0;
     padding: 10px 12px;
+
+    a {
+      color: #6a0bff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+
+      &:hover {
+        text-decoration: underline;
+        color: #5533ff;
+      }
+
+      &:focus {
+        outline: none;
+        text-decoration: underline;
+      }
+    }
   }
 }

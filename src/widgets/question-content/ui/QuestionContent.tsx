@@ -3,9 +3,9 @@ import { Question } from "@/entities/question/model/types";
 import { QuestionHeader } from "./QuestionHeader";
 import { QuestionCode } from "./QuestionCode";
 import { QuestionAnswer } from "./QuestionAnswer";
-import cl from "@/pages/question-page/ui/questionPage.module.scss";
+import cl from "./questionContent.module.scss"; // ← Локальные стили
+import { memo, useMemo } from "react";
 
-// Создаем тот же тип, что используется в LocationState
 export type QuestionContentData = Omit<
   Question,
   | "status"
@@ -19,24 +19,44 @@ export type QuestionContentData = Omit<
 >;
 
 interface QuestionContentProps {
-  question: QuestionContentData; // Используем урезанный тип
+  question: QuestionContentData;
 }
 
-export const QuestionContent: React.FC<QuestionContentProps> = ({
-  question,
-}) => {
-  return (
-    <section className={cl.answer}>
-      <QuestionHeader
-        title={question.title}
-        description={question.description}
-        imageSrc={question.imageSrc}
-      />
-      <QuestionCode code={question.code} />
-      <QuestionAnswer
-        shortAnswer={question.shortAnswer}
-        longAnswer={question.longAnswer}
-      />
-    </section>
-  );
-};
+export const QuestionContent: React.FC<QuestionContentProps> = memo(
+  ({ question }) => {
+    // Мемоизируем пропсы для дочерних компонентов
+    const questionHeaderProps = useMemo(
+      () => ({
+        title: question.title,
+        description: question.description,
+        imageSrc: question.imageSrc,
+      }),
+      [question.title, question.description, question.imageSrc]
+    );
+
+    const questionCodeProps = useMemo(
+      () => ({
+        code: question.code,
+      }),
+      [question.code]
+    );
+
+    const questionAnswerProps = useMemo(
+      () => ({
+        shortAnswer: question.shortAnswer,
+        longAnswer: question.longAnswer,
+      }),
+      [question.shortAnswer, question.longAnswer]
+    );
+
+    return (
+      <section className={cl.answer}>
+        <QuestionHeader {...questionHeaderProps} />
+        <QuestionCode {...questionCodeProps} />
+        <QuestionAnswer {...questionAnswerProps} />
+      </section>
+    );
+  }
+);
+
+QuestionContent.displayName = "QuestionContent";
