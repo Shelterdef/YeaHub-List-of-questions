@@ -1,5 +1,5 @@
 // src/shared/ui/QuestionRateComplexity/QuestionRateComplexity.tsx
-import cl from "./questionRateComplexity.module.scss"; // ← Правильный импорт
+import cl from "./questionRateComplexity.module.scss";
 import { memo, useMemo } from "react";
 
 interface QuestionRateComplexityProps {
@@ -14,7 +14,6 @@ export const QuestionRateComplexity: React.FC<QuestionRateComplexityProps> =
       ? `${cl.ratingDifficulty} ${className}`
       : cl.ratingDifficulty;
 
-    // Мемоизируем вычисления для стабильности
     const rateInfo = useMemo(
       () => (
         <div className={cl.ratingBox}>

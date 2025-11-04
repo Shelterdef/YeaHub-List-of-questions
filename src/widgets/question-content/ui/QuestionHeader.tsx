@@ -1,6 +1,6 @@
 // src/widgets/question-content/ui/QuestionHeader.tsx
 import { Container } from "@/shared/ui";
-import cl from "./questionContent.module.scss"; // ← Локальные стили
+import cl from "./questionContent.module.scss";
 import { memo } from "react";
 
 interface QuestionHeaderProps {
@@ -31,5 +31,3 @@ export const QuestionHeader: React.FC<QuestionHeaderProps> = memo(
     );
   }
 );
-
-QuestionHeader.displayName = "QuestionHeader";

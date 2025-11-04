@@ -1,6 +1,6 @@
 // src/shared/ui/specialization/Specialization.tsx
 import cl from "./specialization.module.scss";
-import { useGetSpecializationsQuery } from "../api";
+import { useGetSpecializationsQuery } from "@/features/specialization/api";
 import { Specialization as SpecializationType } from "@/entities/specialization";
 import { useSpecialization } from "@/features/specialization/lib/useSpecialization";
 import { useEffect, useState, useCallback, useMemo } from "react";

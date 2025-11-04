@@ -3,7 +3,7 @@ import { Question } from "@/entities/question/model/types";
 import { QuestionHeader } from "./QuestionHeader";
 import { QuestionCode } from "./QuestionCode";
 import { QuestionAnswer } from "./QuestionAnswer";
-import cl from "./questionContent.module.scss"; // ← Локальные стили
+import cl from "./questionContent.module.scss";
 import { memo, useMemo } from "react";
 
 export type QuestionContentData = Omit<
@@ -58,5 +58,3 @@ export const QuestionContent: React.FC<QuestionContentProps> = memo(
     );
   }
 );
-
-QuestionContent.displayName = "QuestionContent";

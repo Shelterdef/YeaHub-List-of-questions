@@ -1,8 +1,8 @@
 // src/widgets/SortingQues/ui/SortingQues.tsx
 import { Complexity } from "@/features/complexity";
 import { Rating } from "@/features/rating";
-import { Specialization } from "@/features/specialization";
-import { Skills } from "@/features/skills";
+import { Specialization } from "@/shared/ui";
+import { Skills } from "@/shared/ui";
 import { SideBar } from "@/shared/ui/SideBar/SideBar";
 import cl from "./sortingQues.module.scss";
 import { LinkTG, Search } from "@/shared/ui";

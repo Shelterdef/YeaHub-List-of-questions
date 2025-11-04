@@ -6,3 +6,4 @@ export {
   setComplexities,
   clearComplexities,
 } from "./model/slice";
+export { COMPLEXITY_LEVELS } from "./model/constants";

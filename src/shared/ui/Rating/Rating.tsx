@@ -1,7 +1,7 @@
 // src/features/rating/ui/Rating.tsx
 import React from "react";
-import { useRating } from "../lib/useRating";
-import { RATING_LEVELS } from "../model/constants";
+import { useRating } from "@/features/rating/lib/useRating";
+import { RATING_LEVELS } from "@/features/rating/model/constants";
 import cl from "./rating.module.scss";
 
 export const Rating: React.FC = () => {

@@ -78,5 +78,3 @@ export const QuestionSidebar: React.FC<QuestionSidebarProps> = memo(
     );
   }
 );
-
-QuestionSidebar.displayName = "QuestionSidebar";

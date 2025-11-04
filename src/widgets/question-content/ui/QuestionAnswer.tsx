@@ -44,5 +44,3 @@ export const QuestionAnswer: React.FC<QuestionAnswerProps> = memo(
     );
   }
 );
-
-QuestionAnswer.displayName = "QuestionAnswer";

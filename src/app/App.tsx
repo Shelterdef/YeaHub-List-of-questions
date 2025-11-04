@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { GlobalLoader } from "@/shared/ui/";
 import { Layout, HomePage, QuestionPage, NotFoundPage } from "./lazy-imports";
-import "../shared/assets/styles/normalize.scss";
+import "@/shared/assets/styles/normalize.scss";
 
 function App() {
   return (

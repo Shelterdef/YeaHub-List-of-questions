@@ -1,6 +1,6 @@
 // src/shared/ui/GlobalLoader/GlobalLoader.tsx
 import React from "react";
-import cl from "./GlobalLoader.module.scss";
+import cl from "./globalLoader.module.scss";
 import { memo } from "react";
 
 export const GlobalLoader: React.FC = memo(() => {

@@ -18,5 +18,3 @@ export const QuestionCode: React.FC<QuestionCodeProps> = memo(({ code }) => {
     </Container>
   );
 });
-
-QuestionCode.displayName = "QuestionCode";
