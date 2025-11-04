@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      // GitHub Pages SPA fix
+      const segment = 1;
+      const locationSegments = location.pathname.split("/").filter(Boolean);
+      const repoName = locationSegments[segment];
+      const path = locationSegments.slice(segment + 1).join("/");
+
+      if (repoName) {
+        sessionStorage.redirect = path;
+        location.replace("/" + repoName + "/");
+      }
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>

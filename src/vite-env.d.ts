@@ -4,3 +4,11 @@ declare module "*.module.scss" {
   const classes: { [key: string]: string };
   export default classes;
 }
+
+interface ImportMetaEnv {
+  readonly VITE_APP_TITLE: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
