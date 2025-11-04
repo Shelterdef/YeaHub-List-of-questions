@@ -6,3 +6,4 @@ export { LinkTG } from "./LinkTG/LinkTG";
 export { GlobalLoader } from "./GlobalLoader/GlobalLoader";
 export { ErrorBoundary } from "./ErrorBoundary/ErrorBoundary";
 export { Search } from "./Search/Search";
+export { LinkToBack } from "./LinkToBack/LinkToBack";

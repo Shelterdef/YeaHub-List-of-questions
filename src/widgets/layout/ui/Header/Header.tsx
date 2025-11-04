@@ -41,8 +41,16 @@ export const Header: React.FC = () => {
 
         <nav>
           <ul className="header-navbar">
-            <li>База вопросов</li>
-            <li>Тренажер</li>
+            <li>
+              <Link className="header-link" to="/">
+                База вопросов
+              </Link>
+            </li>
+            <li>
+              <Link className="header-link" to="/">
+                Тренажер
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

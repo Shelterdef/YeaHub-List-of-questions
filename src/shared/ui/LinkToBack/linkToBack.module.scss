@@ -1,0 +1,18 @@
+.aligning {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 10px;
+}
+
+.backLink {
+  color: #6a0bff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+    color: #42089f;
+  }
+}

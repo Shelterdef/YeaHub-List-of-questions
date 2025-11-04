@@ -2,7 +2,7 @@
 import { useParams, useLocation, Link } from "react-router-dom";
 import { Question } from "@/entities/question/model/types";
 import { useGetQuestionByIdQuery } from "@/features/questions/api/questions-api";
-import { Container } from "@/shared/ui";
+import { Container, LinkToBack } from "@/shared/ui";
 import { QuestionContent } from "@/widgets/question-content";
 import { LoadingState } from "@/features/question-error-handling";
 import { ErrorState } from "@/features/question-error-handling";
@@ -71,10 +71,13 @@ export const QuestionPage: React.FC = () => {
   }
 
   // Успешная загрузка
+  // Минимальные изменения в return части
   return (
     <main className={`container_1 ${cl.flex}`}>
-      <Link to="/">Назад</Link>
-      <QuestionContent question={question} />
+      <div className={cl.contentColumn}>
+        <LinkToBack />
+        <QuestionContent question={question} />
+      </div>
       <QuestionSidebar
         rate={question.rate}
         complexity={question.complexity}
