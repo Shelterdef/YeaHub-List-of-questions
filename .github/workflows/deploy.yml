@@ -5,16 +5,17 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm install
@@ -22,31 +23,13 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: github-pages
-          path: dist/
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: github-pages
-          path: ./dist
-
-      - name: Deploy to gh-pages branch
+      - name: Deploy to GitHub Pages
         run: |
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git clone https://github.com/${{ github.repository }}.git gh-pages-repo
-          cd gh-pages-repo
-          git checkout gh-pages || git checkout --orphan gh-pages
-          git rm -rf . || true
-          cp -r ../dist/* .
+          cd dist
+          git init
+          git checkout -b gh-pages
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
           git add .
-          git commit -m "Deploy to GitHub Pages: ${{ github.sha }}"
-          git push https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages
+          git commit -m "Deploy to GitHub Pages"
+          git push --force "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
