@@ -1,4 +1,4 @@
-// src\features\specialization\api\specialization-api.ts
+// src/features/specialization/api/specialization-api.ts
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { SpecializationsResponse } from "@/entities/specialization";
 
@@ -12,6 +12,7 @@ export const specializationApi = createApi({
     getSpecializations: builder.query<SpecializationsResponse, void>({
       query: () => "specializations",
       providesTags: ["Specialization"],
+      keepUnusedDataFor: 300, // 5 минут - специализации редко меняются
     }),
   }),
 });

@@ -23,11 +23,19 @@ export const store = configureStore({
     [questionsApi.reducerPath]: questionsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"],
+        ignoredActionPaths: ["meta.arg", "payload.timestamp"],
+        ignoredPaths: ["items.dates"],
+      },
+    }).concat(
       specializationApi.middleware,
       skillsApi.middleware,
       questionsApi.middleware
     ),
+
+  devTools: process.env.NODE_ENV !== "production",
 });
 
 export type RootState = ReturnType<typeof store.getState>;

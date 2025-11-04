@@ -1,26 +1,9 @@
 // src/app/App.tsx
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { GlobalLoader } from "@/shared/ui/";
+import { Layout, HomePage, QuestionPage, NotFoundPage } from "./lazy-imports";
 import "../shared/assets/styles/normalize.scss";
-
-// Lazy imports с явным указанием named exports
-const Layout = lazy(() =>
-  import("@/widgets/layout").then((module) => ({ default: module.Layout }))
-);
-const HomePage = lazy(() =>
-  import("@/pages/home").then((module) => ({ default: module.HomePage }))
-);
-const QuestionPage = lazy(() =>
-  import("@/pages/question-page").then((module) => ({
-    default: module.QuestionPage,
-  }))
-);
-const NotFoundPage = lazy(() =>
-  import("@/pages/not-found").then((module) => ({
-    default: module.NotFoundPage,
-  }))
-);
 
 function App() {
   return (

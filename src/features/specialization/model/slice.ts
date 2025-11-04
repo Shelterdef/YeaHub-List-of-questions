@@ -26,6 +26,11 @@ export const specializationSlice = createSlice({
   },
 });
 
+// Селектор с защитой от undefined
+export const selectSpecialization = (state: {
+  specialization?: SpecializationState;
+}) => state.specialization?.selectedSpecialization ?? null;
+
 export const { setSpecialization, resetSpecialization } =
   specializationSlice.actions;
 export default specializationSlice.reducer;

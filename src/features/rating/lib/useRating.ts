@@ -1,5 +1,6 @@
 // src/features/rating/lib/useRating.ts
 import { useDispatch, useSelector } from "react-redux";
+import { useCallback, useMemo } from "react"; // <-- Добавляем хуки
 import { toggleRating, setRatings, resetRatings } from "../model/slice";
 import { RatingLevel } from "../model/constants";
 import { RootState } from "@/app/store";
@@ -10,27 +11,45 @@ export const useRating = () => {
     (state: RootState) => state.rating.selectedRatings
   );
 
-  const handleRatingToggle = (rating: RatingLevel) => {
-    dispatch(toggleRating(rating));
-  };
+  const handleRatingToggle = useCallback(
+    (rating: RatingLevel) => {
+      dispatch(toggleRating(rating));
+    },
+    [dispatch]
+  );
 
-  const handleSetRatings = (ratings: RatingLevel[]) => {
-    dispatch(setRatings(ratings));
-  };
+  const handleSetRatings = useCallback(
+    (ratings: RatingLevel[]) => {
+      dispatch(setRatings(ratings));
+    },
+    [dispatch]
+  );
 
-  const handleResetRatings = () => {
+  const handleResetRatings = useCallback(() => {
     dispatch(resetRatings());
-  };
+  }, [dispatch]);
 
-  const isRatingSelected = (rating: RatingLevel) => {
-    return selectedRatings.includes(rating);
-  };
+  const isRatingSelected = useCallback(
+    (rating: RatingLevel) => {
+      return selectedRatings.includes(rating);
+    },
+    [selectedRatings]
+  );
 
-  return {
-    selectedRatings,
-    handleRatingToggle,
-    handleSetRatings,
-    handleResetRatings,
-    isRatingSelected,
-  };
+  return useMemo(
+    () => ({
+      selectedRatings,
+      handleRatingToggle,
+      handleSetRatings,
+      handleResetRatings,
+      isRatingSelected,
+    }),
+    [
+      selectedRatings,
+      handleRatingToggle,
+      handleSetRatings,
+      handleResetRatings,
+      isRatingSelected,
+    ]
+  );
 };

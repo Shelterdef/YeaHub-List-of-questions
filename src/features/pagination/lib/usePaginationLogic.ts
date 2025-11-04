@@ -1,10 +1,11 @@
 // src/features/pagination/lib/usePaginationLogic.ts
 import { usePagination } from "./usePagination";
+import { useMemo } from "react";
 
 export const usePaginationLogic = (totalPages: number) => {
   const { currentPage, setPage, nextPage, prevPage } = usePagination();
 
-  const getVisiblePages = (): (number | string)[] => {
+  const visiblePages = useMemo((): (number | string)[] => {
     const pages: (number | string)[] = [];
 
     if (totalPages <= 7) {
@@ -42,14 +43,14 @@ export const usePaginationLogic = (totalPages: number) => {
     }
 
     return pages;
-  };
+  }, [currentPage, totalPages]); // ← Ключевая оптимизация!
 
   const canGoPrev = currentPage > 1;
   const canGoNext = currentPage < totalPages;
 
   return {
     currentPage,
-    visiblePages: getVisiblePages(),
+    visiblePages,
     canGoPrev,
     canGoNext,
     setPage,

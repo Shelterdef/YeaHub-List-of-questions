@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSpecialization, resetSpecialization } from "../model/slice";
 import { SpecializationId } from "../model/constants";
 import { RootState } from "@/app/store";
+import { useCallback, useMemo } from "react";
 
 export const useSpecialization = () => {
   const dispatch = useDispatch();
@@ -11,24 +12,36 @@ export const useSpecialization = () => {
     return state.specialization?.selectedSpecialization ?? null;
   });
 
-  const handleSpecializationSelect = (
-    specializationId: SpecializationId | null
-  ) => {
-    dispatch(setSpecialization(specializationId));
-  };
+  const handleSpecializationSelect = useCallback(
+    (specializationId: SpecializationId | null) => {
+      dispatch(setSpecialization(specializationId));
+    },
+    [dispatch]
+  );
 
-  const handleResetSpecialization = () => {
+  const handleResetSpecialization = useCallback(() => {
     dispatch(resetSpecialization());
-  };
+  }, [dispatch]);
 
-  const isSpecializationSelected = (specializationId: SpecializationId) => {
-    return selectedSpecialization === specializationId;
-  };
+  const isSpecializationSelected = useCallback(
+    (specializationId: SpecializationId) => {
+      return selectedSpecialization === specializationId;
+    },
+    [selectedSpecialization]
+  );
 
-  return {
-    selectedSpecialization,
-    handleSpecializationSelect,
-    handleResetSpecialization,
-    isSpecializationSelected,
-  };
+  return useMemo(
+    () => ({
+      selectedSpecialization,
+      handleSpecializationSelect,
+      handleResetSpecialization,
+      isSpecializationSelected,
+    }),
+    [
+      selectedSpecialization,
+      handleSpecializationSelect,
+      handleResetSpecialization,
+      isSpecializationSelected,
+    ]
+  );
 };

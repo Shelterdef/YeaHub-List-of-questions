@@ -1,10 +1,10 @@
-// src/shared/ui/skills/Skills.tsx
-import { useGetSkillsQuery } from "../api";
+// src\shared\ui\Skills\Skills.tsx
+import { useGetSkillsQuery } from "@/features/skills";
 import type { Skill } from "@/entities/skill";
-import { useImageLoading } from "@/features/skills/lib/useImageLoading";
+import { useImageLoading } from "@/shared/lib/useImageLoading";
 import { useSkills } from "@/features/skills/lib/useSkills";
 import { useSpecialization } from "@/features/specialization/lib/useSpecialization";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import cl from "./skills.module.scss";
 
 export const Skills: React.FC = () => {
@@ -20,8 +20,14 @@ export const Skills: React.FC = () => {
 
   // Сбрасываем выбранные навыки при смене специализации
   useEffect(() => {
-    handleResetSkills();
-  }, [selectedSpecialization, handleResetSkills]);
+    if (selectedSpecialization) {
+      handleResetSkills();
+    }
+  }, [selectedSpecialization, handleResetSkills]); // Добавили handleResetSkills
+
+  const toggleShowAllSkills = useCallback(() => {
+    setShowAllSkills((prev) => !prev);
+  }, []);
 
   if (!selectedSpecialization) {
     return <div>Выберите специализацию для отображения навыков</div>;
@@ -40,10 +46,6 @@ export const Skills: React.FC = () => {
 
   // Проверяем, есть ли еще навыки для показа
   const hasMoreSkills = skills.length > 5;
-
-  const toggleShowAllSkills = () => {
-    setShowAllSkills(!showAllSkills);
-  };
 
   return (
     <>

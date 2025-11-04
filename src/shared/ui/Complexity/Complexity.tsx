@@ -1,7 +1,7 @@
 // src\features\complexity\ui\Сomplexity.tsx
 import cl from "./complexity.module.scss";
-import { COMPLEXITY_LEVELS } from "../model/constants";
-import { useComplexity } from "../lib/useComplexity";
+import { COMPLEXITY_LEVELS } from "../../../features/complexity/model/constants";
+import { useComplexity } from "../../../features/complexity/lib/useComplexity";
 
 export const Complexity: React.FC = () => {
   const { toggleComplexity, isSelected } = useComplexity();

@@ -3,7 +3,7 @@ import cl from "./specialization.module.scss";
 import { useGetSpecializationsQuery } from "../api";
 import { Specialization as SpecializationType } from "@/entities/specialization";
 import { useSpecialization } from "@/features/specialization/lib/useSpecialization";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 
 export const Specialization: React.FC = () => {
   const { data: response, isLoading, error } = useGetSpecializationsQuery();
@@ -15,41 +15,49 @@ export const Specialization: React.FC = () => {
 
   const [showAll, setShowAll] = useState(false);
 
+  // Мемоизируем список специализаций
+  const specializations: SpecializationType[] = useMemo(
+    () => response?.data || [],
+    [response?.data] // Зависим только от data, а не от всего response
+  );
+
   // Автоматически выбираем первую специализацию при загрузке
   useEffect(() => {
-    if (response?.data && response.data.length > 0 && !selectedSpecialization) {
-      const firstSpecialization = response.data[0];
+    if (specializations.length > 0 && !selectedSpecialization) {
+      const firstSpecialization = specializations[0];
       handleSpecializationSelect(firstSpecialization.id);
     }
-  }, [response, selectedSpecialization, handleSpecializationSelect]);
+  }, [specializations, selectedSpecialization, handleSpecializationSelect]);
+
+  const toggleShowAll = useCallback(() => {
+    setShowAll((prev) => !prev);
+  }, []);
+
+  const handleSpecClick = useCallback(
+    (spec: SpecializationType) => {
+      if (selectedSpecialization === spec.id) {
+        handleSpecializationSelect(null);
+      } else {
+        handleSpecializationSelect(spec.id);
+      }
+    },
+    [selectedSpecialization, handleSpecializationSelect]
+  );
+
+  // Мемоизируем отображаемые специализации
+  const displayedSpecializations = useMemo(
+    () => (showAll ? specializations : specializations.slice(0, 5)),
+    [showAll, specializations]
+  );
+
+  // Проверяем, есть ли еще специализации для показа
+  const hasMoreSpecializations = specializations.length > 5;
 
   if (isLoading) return <div>Загрузка специализаций...</div>;
   if (error) {
     console.error("Ошибка загрузки:", error);
     return <div>Ошибка загрузки</div>;
   }
-
-  const specializations: SpecializationType[] = response?.data || [];
-
-  // Показываем только первые 5 или все специализации
-  const displayedSpecializations = showAll
-    ? specializations
-    : specializations.slice(0, 5);
-
-  // Проверяем, есть ли еще специализации для показа
-  const hasMoreSpecializations = specializations.length > 5;
-
-  const handleSpecClick = (spec: SpecializationType) => {
-    if (selectedSpecialization === spec.id) {
-      handleSpecializationSelect(null);
-    } else {
-      handleSpecializationSelect(spec.id);
-    }
-  };
-
-  const toggleShowAll = () => {
-    setShowAll(!showAll);
-  };
 
   return (
     <>
