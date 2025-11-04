@@ -1,4 +1,3 @@
-// src/features/questions/api/questions-api.ts
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import {
   QuestionsResponse,
@@ -61,7 +60,6 @@ export const questionsApi = createApi({
       providesTags: ["Questions"],
     }),
 
-    // Добавляем endpoint для получения одного вопроса
     getQuestionById: builder.query<Question, number>({
       query: (id) => `questions/${id}`,
       providesTags: (_result, _error, id) => [{ type: "Question", id }],
@@ -69,6 +67,7 @@ export const questionsApi = createApi({
   }),
 });
 
+// Добавляем экспорт хуков
 export const {
   useGetPublicQuestionsQuery,
   useLazyGetPublicQuestionsQuery,

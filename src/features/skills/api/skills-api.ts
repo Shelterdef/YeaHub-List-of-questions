@@ -5,7 +5,7 @@ import { API_BASE_URL } from "@/shared/config/api";
 export const skillsApi = createApi({
   reducerPath: "skillsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: API_BASE_URL + "/", // ← ИСПРАВЛЕНО
+    baseUrl: API_BASE_URL + "/",
   }),
   tagTypes: ["Skills"],
   endpoints: (builder) => ({
@@ -29,3 +29,5 @@ export const skillsApi = createApi({
     }),
   }),
 });
+
+export const { useGetSkillsQuery, useLazyGetSkillsQuery } = skillsApi;

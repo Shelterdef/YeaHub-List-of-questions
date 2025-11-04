@@ -5,7 +5,7 @@ import { API_BASE_URL } from "@/shared/config/api";
 export const specializationApi = createApi({
   reducerPath: "specializationApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: API_BASE_URL + "/", // ← ИСПРАВЛЕНО
+    baseUrl: API_BASE_URL + "/",
   }),
   tagTypes: ["Specialization"],
   endpoints: (builder) => ({
@@ -16,3 +16,7 @@ export const specializationApi = createApi({
     }),
   }),
 });
+
+// Добавляем экспорт хуков
+export const { useGetSpecializationsQuery, useLazyGetSpecializationsQuery } =
+  specializationApi;
