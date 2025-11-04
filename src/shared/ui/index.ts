@@ -9,3 +9,4 @@ export { Search } from "./Search/Search";
 export { LinkToBack } from "./LinkToBack/LinkToBack";
 export { Specialization } from "./Specialization/Specialization";
 export { Skills } from "./Skills/Skills";
+export { Rating } from "./Rating/Rating";
