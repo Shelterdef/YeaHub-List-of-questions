@@ -5,11 +5,12 @@ import {
   QuestionsFilter,
   Question,
 } from "@/entities/question/model/types";
+import { API_BASE_URL } from "@/shared/config/api";
 
 export const questionsApi = createApi({
   reducerPath: "questionsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "/api/",
+    baseUrl: API_BASE_URL + "/",
   }),
   tagTypes: ["Questions", "Question"],
   endpoints: (builder) => ({

@@ -1,11 +1,11 @@
-// src/features/skills/api/skills-api.ts
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { SkillsResponse } from "@/entities/skill";
+import { API_BASE_URL } from "@/shared/config/api";
 
 export const skillsApi = createApi({
   reducerPath: "skillsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "/api/",
+    baseUrl: API_BASE_URL + "/", // ← ИСПРАВЛЕНО
   }),
   tagTypes: ["Skills"],
   endpoints: (builder) => ({
@@ -29,5 +29,3 @@ export const skillsApi = createApi({
     }),
   }),
 });
-
-export const { useGetSkillsQuery, useLazyGetSkillsQuery } = skillsApi;

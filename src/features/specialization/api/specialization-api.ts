@@ -1,11 +1,11 @@
-// src/features/specialization/api/specialization-api.ts
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { SpecializationsResponse } from "@/entities/specialization";
+import { API_BASE_URL } from "@/shared/config/api";
 
 export const specializationApi = createApi({
   reducerPath: "specializationApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "/api/",
+    baseUrl: API_BASE_URL + "/", // ← ИСПРАВЛЕНО
   }),
   tagTypes: ["Specialization"],
   endpoints: (builder) => ({
@@ -16,6 +16,3 @@ export const specializationApi = createApi({
     }),
   }),
 });
-
-export const { useGetSpecializationsQuery, useLazyGetSpecializationsQuery } =
-  specializationApi;
