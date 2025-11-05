@@ -1,11 +1,10 @@
-// vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/YeaHub-List-of-questions/",
+  base: "/", // ← ИЗМЕНИТЬ для Vercel!
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -17,7 +16,7 @@ export default defineConfig({
       "@/shared": path.resolve(__dirname, "./src/shared"),
     },
   },
-
+  // server proxy можно оставить для разработки
   server: {
     proxy: {
       "/api": {

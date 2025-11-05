@@ -38,13 +38,13 @@ export const Header: React.FC = memo(() => {
     <header className="container_1 header">
       <div className="header-logo">
         <Link to="/">
-          <img
+          {/* <img
             src="/YeaHub-List-of-questions/logo.avif"
             className="logo"
             style={LOGO_IMAGE_STYLE}
             alt="Yeahub Logo"
             loading="lazy"
-          />
+          /> */}
           <LogoIcon />
         </Link>
 
