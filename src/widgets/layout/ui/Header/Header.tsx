@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import { LogoIcon } from "@/shared/assets/svg/LogoIcon";
 import { memo } from "react";
+import logo from "@/shared/assets/img/logo.avif";
 
 const LOGO_IMAGE_STYLE = {
   width: "33px",
@@ -39,7 +40,7 @@ export const Header: React.FC = memo(() => {
       <div className="header-logo">
         <Link to="/">
           <img
-            src="/logo.avif"
+            src={logo}
             className="logo"
             style={LOGO_IMAGE_STYLE}
             alt="Yeahub Logo"
