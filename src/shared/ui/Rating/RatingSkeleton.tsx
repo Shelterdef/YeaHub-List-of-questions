@@ -1,7 +1,7 @@
 // src/features/rating/ui/RatingSkeleton.tsx
 import { memo } from "react";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
-import styles from "./RatingSkeleton.module.scss";
+import styles from "./ratingSkeleton.module.scss";
 
 export const RatingSkeleton: React.FC = memo(() => {
   return (

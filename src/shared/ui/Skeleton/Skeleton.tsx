@@ -1,6 +1,6 @@
 // src/shared/ui/Skeleton/Skeleton.tsx
 import { memo } from "react";
-import styles from "./Skeleton.module.scss"; // ← модуль!
+import styles from "./skeleton.module.scss"; // ← модуль!
 
 interface SkeletonProps {
   width?: string;

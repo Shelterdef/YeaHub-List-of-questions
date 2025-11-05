@@ -1,7 +1,7 @@
 // src/features/complexity/ui/ComplexitySkeleton.tsx
 import { memo } from "react";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
-import styles from "./ComplexitySkeleton.module.scss";
+import styles from "./complexitySkeleton.module.scss";
 
 export const ComplexitySkeleton: React.FC = memo(() => {
   return (

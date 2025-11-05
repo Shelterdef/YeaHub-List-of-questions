@@ -1,7 +1,7 @@
 // src/shared/ui/Specialization/SpecializationSkeleton.tsx
 import { memo } from "react";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
-import styles from "./SpecializationSkeleton.module.scss";
+import styles from "./specializationSkeleton.module.scss";
 
 export const SpecializationSkeleton: React.FC = memo(() => {
   return (

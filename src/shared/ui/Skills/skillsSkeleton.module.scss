@@ -1,0 +1,19 @@
+// src/shared/ui/Skills/skillsSkeleton.module.scss
+.skillsSkeleton {
+  margin-bottom: 20px;
+}
+
+.label {
+  margin-bottom: 8px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.toggle {
+  display: inline-block;
+}
