@@ -17,6 +17,5 @@ export const specializationApi = createApi({
   }),
 });
 
-// Добавляем экспорт хуков
 export const { useGetSpecializationsQuery, useLazyGetSpecializationsQuery } =
   specializationApi;

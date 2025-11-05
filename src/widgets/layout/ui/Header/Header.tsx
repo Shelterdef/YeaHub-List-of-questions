@@ -39,7 +39,7 @@ export const Header: React.FC = memo(() => {
       <div className="header-logo">
         <Link to="/">
           <img
-            src="/src/shared/assets/img/logo.avif"
+            src="src\shared\assets\img\logo.avif"
             className="logo"
             style={LOGO_IMAGE_STYLE}
             alt="Yeahub Logo"
@@ -55,4 +55,3 @@ export const Header: React.FC = memo(() => {
     </header>
   );
 });
-Header.displayName = "Header";
