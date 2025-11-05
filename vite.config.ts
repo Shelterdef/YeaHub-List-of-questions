@@ -1,3 +1,4 @@
+// vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -16,14 +17,14 @@ export default defineConfig({
       "@/shared": path.resolve(__dirname, "./src/shared"),
     },
   },
-  // УДАЛИТЕ server.proxy для production сборки
-  // server: {
-  //   proxy: {
-  //     "/api": {
-  //       target: "https://api.yeatwork.ru",
-  //       changeOrigin: true,
-  //       rewrite: (path) => path.replace(/^\/api/, ""),
-  //     },
-  //   },
-  // },
+
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://api.yeatwork.ru",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 });
