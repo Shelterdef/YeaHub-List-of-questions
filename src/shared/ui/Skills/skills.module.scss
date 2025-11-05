@@ -1,52 +1,19 @@
-// src\shared\ui\Skills\skills.module.scss
-.listSkills {
+// src/shared/ui/Skills/SkillsSkeleton.module.scss
+.skillsSkeleton {
+  margin-bottom: 20px;
+}
+
+.label {
+  margin-bottom: 8px;
+}
+
+.skills {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   gap: 8px;
-  align-items: start;
+  margin-bottom: 8px;
 }
 
-.card {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.img {
-  width: 20px;
-  height: 20px;
-  margin-right: 6px;
-}
-
-.skill {
-  display: flex;
-  align-items: center;
-  height: 42px;
-  cursor: pointer;
-  border: 1px solid #a3a3a3;
-  border-radius: 12px;
-  padding: 3px 12px;
-  font-size: 16px;
-  transition: all 0.2s ease;
-
-  &:hover {
-    color: white;
-    background-color: #5533ff;
-  }
-}
-
-.skillSelected {
-  border-color: #5533ff;
-
-  &:hover {
-    background-color: #4528d4;
-    color: white;
-  }
-}
-
-.toggleLink {
-  color: #6a0bff;
-  font-size: 14px;
+.toggle {
+  display: inline-block;
 }

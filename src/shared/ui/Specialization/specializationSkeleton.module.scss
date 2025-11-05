@@ -1,0 +1,14 @@
+// src/shared/ui/Specialization/SpecializationSkeleton.module.scss
+.specializationSkeleton {
+  margin-bottom: 20px;
+}
+
+.label {
+  margin-bottom: 8px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

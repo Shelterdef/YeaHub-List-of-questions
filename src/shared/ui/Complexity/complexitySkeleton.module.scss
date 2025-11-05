@@ -1,0 +1,14 @@
+// src/features/complexity/ui/ComplexitySkeleton.module.scss
+.complexitySkeleton {
+  margin-bottom: 20px;
+}
+
+.label {
+  margin-bottom: 8px;
+}
+
+.levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

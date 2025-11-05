@@ -1,0 +1,14 @@
+// src/features/rating/ui/RatingSkeleton.module.scss
+.ratingSkeleton {
+  margin-bottom: 20px;
+}
+
+.label {
+  margin-bottom: 8px;
+}
+
+.ratings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

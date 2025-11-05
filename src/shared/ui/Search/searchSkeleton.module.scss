@@ -1,0 +1,11 @@
+// src/shared/ui/Search/SearchSkeleton.module.scss
+.searchSkeleton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px;
+  height: 46px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 320px;
+}
