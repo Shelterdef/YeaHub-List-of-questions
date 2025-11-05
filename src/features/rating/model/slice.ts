@@ -19,10 +19,8 @@ export const ratingSlice = createSlice({
       const index = state.selectedRatings.indexOf(rating);
 
       if (index === -1) {
-        // Добавляем рейтинг
         state.selectedRatings.push(rating);
       } else {
-        // Удаляем рейтинг
         state.selectedRatings.splice(index, 1);
       }
     },

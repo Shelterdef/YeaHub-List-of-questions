@@ -12,8 +12,6 @@ export const useKeywordSearch = () => {
     (keyword: string) => {
       // Устанавливаем поисковый запрос
       dispatch(setSearchQuery(keyword));
-
-      // Переходим на главную страницу с примененным фильтром
       navigate("/");
     },
     [dispatch, navigate]

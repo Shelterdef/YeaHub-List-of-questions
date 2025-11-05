@@ -12,34 +12,28 @@ import cl from "./sortingQues.module.scss";
 export const SortingQuesSkeleton: React.FC = memo(() => {
   return (
     <SideBar>
-      {/* Search Skeleton */}
       <SearchSkeleton />
 
-      {/* Specialization Skeleton */}
       <article>
         <Skeleton height="14px" width="120px" className={cl.sections} />
         <SpecializationSkeleton />
       </article>
 
-      {/* Skills Skeleton */}
       <div>
         <Skeleton height="14px" width="140px" className={cl.sections} />
         <SkillsSkeleton />
       </div>
 
-      {/* Complexity Skeleton */}
       <div>
         <Skeleton height="14px" width="160px" className={cl.sections} />
         <ComplexitySkeleton />
       </div>
 
-      {/* Rating Skeleton */}
       <div className={cl.sections}>
         <Skeleton height="14px" width="140px" />
         <RatingSkeleton />
       </div>
 
-      {/* LinkTG Skeleton (простой) */}
       <Skeleton height="40px" width="100%" borderRadius="8px" />
     </SideBar>
   );

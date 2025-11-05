@@ -9,7 +9,6 @@ interface SideBarProps {
 
 export const SideBar: React.FC<SideBarProps> = memo(
   ({ children, className }) => {
-    // Мемоизируем вычисление класса
     const sidebarClass = useMemo(() => {
       const baseClass = cl.mainSideBar;
       return className ? `${baseClass} ${className}` : baseClass;
@@ -22,5 +21,3 @@ export const SideBar: React.FC<SideBarProps> = memo(
     );
   }
 );
-
-SideBar.displayName = "SideBar";

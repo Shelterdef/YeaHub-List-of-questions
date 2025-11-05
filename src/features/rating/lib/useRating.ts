@@ -1,6 +1,6 @@
 // src/features/rating/lib/useRating.ts
 import { useDispatch, useSelector } from "react-redux";
-import { useCallback, useMemo } from "react"; // <-- Добавляем хуки
+import { useCallback, useMemo } from "react";
 import { toggleRating, setRatings, resetRatings } from "../model/slice";
 import { RatingLevel } from "../model/constants";
 import { RootState } from "@/app/store";

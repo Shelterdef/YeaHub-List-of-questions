@@ -21,7 +21,6 @@ export const Pagination: React.FC<PaginationProps> = memo(({ totalPages }) => {
     currentPage,
   } = usePaginationLogic(totalPages);
 
-  // Мемоизируем видимые страницы
   const pageButtons = useMemo(
     () =>
       visiblePages.map((page, index) => {

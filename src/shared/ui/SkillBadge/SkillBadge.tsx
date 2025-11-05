@@ -18,12 +18,10 @@ export const SkillBadge: React.FC<SkillBadgeProps> = memo(
     showImage = true,
     size = "medium",
   }) => {
-    // Оптимизируем обработчик
     const handleClick = useCallback(() => {
       onClick?.(skill.id);
     }, [onClick, skill.id]);
 
-    // Мемоизируем вычисление класса
     const badgeClass = useMemo(() => {
       const classes = [cl.skillBadge, cl[size]];
       if (isSelected) classes.push(cl.selected);

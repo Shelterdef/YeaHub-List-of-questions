@@ -70,8 +70,6 @@ export const QuestionPage: React.FC = () => {
     );
   }
 
-  // Успешная загрузка
-  // Минимальные изменения в return части
   return (
     <main className={`container_1 ${cl.flex}`}>
       <div className={cl.contentColumn}>

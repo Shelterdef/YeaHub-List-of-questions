@@ -11,10 +11,8 @@ import { useGetSpecializationsQuery } from "@/features/specialization/api";
 import { SortingQuesSkeleton } from "./SortingQuesSkeleton";
 
 export const SortingQues: React.FC = memo(() => {
-  // Все хуки ДО любого условного оператора
   const { isLoading: isSpecializationsLoading } = useGetSpecializationsQuery();
 
-  // Мемоизация секций ДО условного оператора
   const searchSection = useMemo(() => <Search />, []);
 
   const specializationSection = useMemo(
@@ -59,7 +57,6 @@ export const SortingQues: React.FC = memo(() => {
 
   const linkSection = useMemo(() => <LinkTG />, []);
 
-  // Условный рендеринг ПОСЛЕ всех хуков
   if (isSpecializationsLoading) {
     return <SortingQuesSkeleton />;
   }

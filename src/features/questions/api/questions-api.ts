@@ -17,7 +17,7 @@ export const questionsApi = createApi({
       query: (filters) => {
         const params = new URLSearchParams();
 
-        // Добавляем параметры фильтрации
+        // Параметры фильтрации
         if (filters.page) params.append("page", filters.page.toString());
         if (filters.limit) params.append("limit", filters.limit.toString());
         if (filters.title) params.append("title", filters.title);
@@ -67,7 +67,6 @@ export const questionsApi = createApi({
   }),
 });
 
-// Добавляем экспорт хуков
 export const {
   useGetPublicQuestionsQuery,
   useLazyGetPublicQuestionsQuery,

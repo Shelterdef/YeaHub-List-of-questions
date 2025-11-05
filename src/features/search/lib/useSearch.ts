@@ -7,7 +7,6 @@ import { useCallback } from "react";
 export const useSearch = () => {
   const dispatch = useDispatch();
 
-  // Оптимизация: мемоизируем селектор
   const searchQuery = useSelector(
     (state: RootState) => state.search.searchQuery
   );

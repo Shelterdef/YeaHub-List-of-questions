@@ -15,7 +15,6 @@ export const Specialization: React.FC = () => {
 
   const [showAll, setShowAll] = useState(false);
 
-  // Мемоизируем список специализаций
   const specializations: SpecializationType[] = useMemo(
     () => response?.data || [],
     [response?.data] // Зависим только от data, а не от всего response
@@ -75,7 +74,6 @@ export const Specialization: React.FC = () => {
         ))}
       </div>
 
-      {/* Ссылка "Посмотреть все"/"Скрыть" */}
       {hasMoreSpecializations && (
         <a onClick={toggleShowAll} className={cl.toggleLink}>
           {showAll ? "Скрыть" : "Посмотреть все"}

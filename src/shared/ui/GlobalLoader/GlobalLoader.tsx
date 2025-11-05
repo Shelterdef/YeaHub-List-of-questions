@@ -12,9 +12,9 @@ export const GlobalLoader: React.FC = memo(() => {
       aria-label="Приложение загружается"
     >
       <div className={cl.spinner} aria-hidden="true"></div>
-      <p className={cl.text}>Загружаем лучший опыт для вас...</p>
+      <p className={cl.text}>
+        Загружаем лучшие вопросы для вашего хардворка...
+      </p>
     </div>
   );
 });
-
-GlobalLoader.displayName = "GlobalLoader";

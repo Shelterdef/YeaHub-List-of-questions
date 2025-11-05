@@ -23,7 +23,7 @@ export const Skills: React.FC = () => {
     if (selectedSpecialization) {
       handleResetSkills();
     }
-  }, [selectedSpecialization, handleResetSkills]); // Добавили handleResetSkills
+  }, [selectedSpecialization, handleResetSkills]);
 
   const toggleShowAllSkills = useCallback(() => {
     setShowAllSkills((prev) => !prev);
@@ -72,7 +72,6 @@ export const Skills: React.FC = () => {
         ))}
       </div>
 
-      {/* Ссылка "Посмотреть все"/"Скрыть" для навыков */}
       {hasMoreSkills && (
         <a onClick={toggleShowAllSkills} className={cl.toggleLink}>
           {showAllSkills ? "Скрыть" : "Посмотреть все"}

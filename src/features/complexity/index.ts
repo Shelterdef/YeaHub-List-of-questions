@@ -1,5 +1,5 @@
 // src\features\complexity\index.ts
-export { Complexity } from "../../shared/ui/Complexity/Complexity";
+export { Complexity } from "@/shared/ui/Complexity/Complexity";
 export { useComplexity } from "./lib/useComplexity";
 export {
   toggleComplexity,

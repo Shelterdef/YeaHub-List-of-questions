@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleSkill, setSkills, resetSkills } from "../model/slice";
 import { SkillId } from "../model/constants";
 import { RootState } from "@/app/store";
-import { useCallback, useMemo } from "react"; // <-- Добавляем useMemo
+import { useCallback, useMemo } from "react";
 
 export const useSkills = () => {
   const dispatch = useDispatch();
@@ -36,7 +36,6 @@ export const useSkills = () => {
     [selectedSkills]
   );
 
-  // Мемоизируем возвращаемый объект
   return useMemo(
     () => ({
       selectedSkills,
