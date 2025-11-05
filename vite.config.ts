@@ -2,10 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/YeaHub-List-of-questions/", // ← ВАЖНО: имя твоего репозитория!
+  base: "/YeaHub-List-of-questions/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -17,13 +16,14 @@ export default defineConfig({
       "@/shared": path.resolve(__dirname, "./src/shared"),
     },
   },
-  server: {
-    proxy: {
-      "/api": {
-        target: "https://api.yeatwork.ru",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
-      },
-    },
-  },
+  // УДАЛИТЕ server.proxy для production сборки
+  // server: {
+  //   proxy: {
+  //     "/api": {
+  //       target: "https://api.yeatwork.ru",
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/api/, ""),
+  //     },
+  //   },
+  // },
 });
