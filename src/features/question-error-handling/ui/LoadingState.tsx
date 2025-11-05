@@ -1,18 +1,18 @@
-// src\features\question-error-handling\ui\LoadingState.tsx
-import { Link } from "react-router-dom";
-import { Container } from "@/shared/ui";
+// src/features/question-error-handling/ui/LoadingState.tsx
+import { LinkToBack } from "@/shared/ui";
+import { QuestionContentSkeleton } from "@/widgets/question-content/ui/Skeletons/QuestionContentSkeleton";
+import { QuestionSidebarSkeleton } from "@/widgets/QuestionSidebar/ui/QuestionSidebarSkeleton";
 import cl from "@/pages/question-page/ui/questionPage.module.scss";
+import { memo } from "react";
 
-export const LoadingState: React.FC = () => {
+export const LoadingState: React.FC = memo(() => {
   return (
-    <>
-      <Link to="/">Назад</Link>
-      <main className={`container_1 ${cl.flex}`}>
-        <Container>
-          <h1>Загрузка вопроса...</h1>
-          <p>Пожалуйста, подождите</p>
-        </Container>
-      </main>
-    </>
+    <main className={`container_1 ${cl.flex}`}>
+      <div className={cl.contentColumn}>
+        <LinkToBack />
+        <QuestionContentSkeleton />
+      </div>
+      <QuestionSidebarSkeleton />
+    </main>
   );
-};
+});

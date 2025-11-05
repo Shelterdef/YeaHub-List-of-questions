@@ -1,6 +1,6 @@
 // src/widgets/question-content/ui/QuestionAnswer.tsx
 import { Container } from "@/shared/ui";
-import cl from "./questionContent.module.scss"; // ← Локальные стили
+import cl from "./questionContent.module.scss";
 import { memo, useMemo } from "react";
 
 interface QuestionAnswerProps {
@@ -10,7 +10,6 @@ interface QuestionAnswerProps {
 
 export const QuestionAnswer: React.FC<QuestionAnswerProps> = memo(
   ({ shortAnswer, longAnswer }) => {
-    // Мемоизируем объекты для dangerouslySetInnerHTML
     const shortAnswerHtml = useMemo(
       () => ({ __html: shortAnswer }),
       [shortAnswer]
