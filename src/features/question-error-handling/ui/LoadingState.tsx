@@ -1,7 +1,7 @@
 // src/features/question-error-handling/ui/LoadingState.tsx
 import { LinkToBack } from "@/shared/ui";
-import { QuestionContentSkeleton } from "@/widgets/question-content/ui/Skeletons/QuestionContentSkeleton";
-import { QuestionSidebarSkeleton } from "@/widgets/QuestionSidebar/ui/QuestionSidebarSkeleton";
+import { QuestionContentSkeleton } from "@/widgets/question-content";
+import { QuestionSidebarSkeleton } from "@/widgets/QuestionSidebar/";
 import cl from "@/pages/question-page/ui/questionPage.module.scss";
 import { memo } from "react";
 

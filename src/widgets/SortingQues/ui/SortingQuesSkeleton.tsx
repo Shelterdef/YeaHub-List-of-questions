@@ -1,12 +1,12 @@
 // src/widgets/SortingQues/ui/SortingQuesSkeleton.tsx
 import { memo } from "react";
 import { SideBar } from "@/shared/ui/SideBar/SideBar";
-import { SearchSkeleton } from "@/shared/ui/Search/SearchSkeleton";
-import { SpecializationSkeleton } from "@/shared/ui/Specialization/SpecializationSkeleton";
-import { SkillsSkeleton } from "@/shared/ui/Skills/SkillsSkeleton";
-import { ComplexitySkeleton } from "@/shared/ui/Complexity/ComplexitySkeleton";
-import { RatingSkeleton } from "@/shared/ui/Rating/RatingSkeleton";
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
+import { SearchSkeleton } from "@/shared/ui";
+import { SpecializationsSkeleton } from "@/entities/specialization";
+import { SkillsSkeleton } from "@/entities/skill";
+import { ComplexitySkeleton } from "@/shared/ui";
+import { RatingSkeleton } from "@/shared/ui";
+import { Skeleton } from "@/shared/ui";
 import cl from "./sortingQues.module.scss";
 
 export const SortingQuesSkeleton: React.FC = memo(() => {
@@ -16,7 +16,7 @@ export const SortingQuesSkeleton: React.FC = memo(() => {
 
       <article>
         <Skeleton height="14px" width="120px" className={cl.sections} />
-        <SpecializationSkeleton />
+        <SpecializationsSkeleton />
       </article>
 
       <div>

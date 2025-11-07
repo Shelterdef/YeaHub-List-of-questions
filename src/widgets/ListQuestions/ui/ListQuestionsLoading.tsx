@@ -1,6 +1,6 @@
 // src/widgets/listQuestions/ui/ListQuestionsLoading.tsx
 import { Container } from "@/shared/ui/";
-import { QuestionCardSkeleton } from "@/widgets/questionCard/ui/QuestionCardSkeleton";
+import { QuestionCardSkeleton } from "@/entities/question/";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 import cl from "./listQuestions.module.scss";
 import { memo } from "react";

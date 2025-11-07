@@ -1,9 +1,9 @@
 // src/widgets/listQuestions/ui/ListQuestionsContent.tsx
-import { QuestionCard } from "@/widgets/questionCard/ui/QuestionCard";
+import { QuestionCard } from "@/entities/question/";
 import { Pagination } from "@/features/pagination";
 import { Container } from "@/shared/ui/";
 import cl from "./listQuestions.module.scss";
-import { Question } from "@/entities/question/model/types";
+import { Question } from "@/entities/question";
 import { memo } from "react";
 
 interface ListQuestionsContentProps {

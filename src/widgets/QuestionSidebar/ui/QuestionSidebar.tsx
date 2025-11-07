@@ -1,8 +1,8 @@
 // src/widgets/QuestionSidebar/ui/QuestionSidebar.tsx
-import { SkillBadge } from "@/shared/ui/SkillBadge/SkillBadge";
+import { SkillBadge } from "@/shared/ui";
 import cl from "./questionSidebar.module.scss";
 import { LinkTG, QuestionRateComplexity, SideBar } from "@/shared/ui";
-import { useKeywordSearch } from "@/features/search/lib/useKeywordSearch";
+import { useKeywordSearch } from "@/features/search";
 import { memo, useCallback, useMemo } from "react";
 
 interface QuestionSidebarProps {

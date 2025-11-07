@@ -1,6 +1,6 @@
 // src/features/rating/ui/Rating.tsx
 import React from "react";
-import { useRating } from "@/features/rating/lib/useRating";
+import { useRating } from "@/features/rating";
 import { RATING_LEVELS } from "@/features/rating/model/constants";
 import cl from "./rating.module.scss";
 

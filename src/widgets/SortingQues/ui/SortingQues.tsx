@@ -1,13 +1,13 @@
 // src/widgets/SortingQues/ui/SortingQues.tsx
 import { Complexity } from "@/features/complexity";
 import { Rating } from "@/shared/ui";
-import { Specialization } from "@/shared/ui";
-import { Skills } from "@/shared/ui";
-import { SideBar } from "@/shared/ui/SideBar/SideBar";
+import { Specializations } from "@/entities/specialization/";
+import { Skills } from "@/entities/skill";
+import { SideBar } from "@/shared/ui";
 import cl from "./sortingQues.module.scss";
 import { LinkTG, Search } from "@/shared/ui";
 import { memo, useMemo } from "react";
-import { useGetSpecializationsQuery } from "@/features/specialization/api";
+import { useGetSpecializationsQuery } from "@/features/specialization";
 import { SortingQuesSkeleton } from "./SortingQuesSkeleton";
 
 export const SortingQues: React.FC = memo(() => {
@@ -19,7 +19,7 @@ export const SortingQues: React.FC = memo(() => {
     () => (
       <article>
         <p className={cl.sections}>Специализация</p>
-        <Specialization />
+        <Specializations />
       </article>
     ),
     []

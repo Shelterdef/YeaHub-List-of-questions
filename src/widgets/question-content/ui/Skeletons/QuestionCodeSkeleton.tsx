@@ -1,6 +1,6 @@
 // src/widgets/question-content/ui/QuestionCodeSkeleton.tsx
 import { Container } from "@/shared/ui";
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
+import { Skeleton } from "@/shared/ui";
 import cl from "../questionContent.module.scss";
 import { memo } from "react";
 

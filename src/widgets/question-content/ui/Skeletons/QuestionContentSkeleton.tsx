@@ -1,5 +1,5 @@
 // src/widgets/question-content/ui/QuestionContentSkeleton.tsx
-import { LinkToBackSkeleton } from "@/shared/ui/LinkToBack/LinkToBackSkeleton";
+import { LinkToBackSkeleton } from "@/shared/ui/";
 import { QuestionHeaderSkeleton } from "./QuestionHeaderSkeleton";
 import { QuestionCodeSkeleton } from "./QuestionCodeSkeleton";
 import { QuestionAnswerSkeleton } from "./QuestionAnswerSkeleton";

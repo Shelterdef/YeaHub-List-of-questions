@@ -1,7 +1,7 @@
 // src/widgets/QuestionSidebar/ui/QuestionSidebarSkeleton.tsx
 import { memo } from "react";
-import { SideBar } from "@/shared/ui/SideBar/SideBar";
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
+import { SideBar } from "@/shared/ui";
+import { Skeleton } from "@/shared/ui";
 import cl from "./questionSidebar.module.scss";
 
 export const QuestionSidebarSkeleton: React.FC = memo(() => {

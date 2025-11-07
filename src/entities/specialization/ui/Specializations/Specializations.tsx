@@ -5,7 +5,7 @@ import { Specialization as SpecializationType } from "@/entities/specialization"
 import { useSpecialization } from "@/features/specialization/lib/useSpecialization";
 import { useEffect, useState, useCallback, useMemo } from "react";
 
-export const Specialization: React.FC = () => {
+export const Specializations: React.FC = () => {
   const { data: response, isLoading, error } = useGetSpecializationsQuery();
   const {
     handleSpecializationSelect,
@@ -17,7 +17,7 @@ export const Specialization: React.FC = () => {
 
   const specializations: SpecializationType[] = useMemo(
     () => response?.data || [],
-    [response?.data] // Зависим только от data, а не от всего response
+    [response?.data]
   );
 
   // Автоматически выбираем первую специализацию при загрузке
