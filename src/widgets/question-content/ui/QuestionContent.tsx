@@ -1,5 +1,5 @@
 // src/widgets/question-content/ui/QuestionContent.tsx
-import { Question } from "@/entities/question/model/types";
+import { Question } from "@/entities/question";
 import { QuestionHeader } from "./QuestionHeader";
 import { QuestionCode } from "./QuestionCode";
 import { QuestionAnswer } from "./QuestionAnswer";

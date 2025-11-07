@@ -1,4 +1,4 @@
-// src/widgets/questionCard/ui/QuestionCardSkeleton.tsx
+// src\entities\question\ui\QuestionCardSkeleton.tsx
 import { memo } from "react";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 import styles from "./questionCardSkeleton.module.scss";

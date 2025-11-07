@@ -3,7 +3,7 @@ import { memo } from "react";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 import styles from "./specializationSkeleton.module.scss";
 
-export const SpecializationSkeleton: React.FC = memo(() => {
+export const SpecializationsSkeleton: React.FC = memo(() => {
   return (
     <div className={styles.specializationSkeleton}>
       <Skeleton height="14px" width="120px" className={styles.label} />
