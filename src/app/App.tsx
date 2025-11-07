@@ -1,22 +1,13 @@
-// src/app/App.tsx
 import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import { GlobalLoader } from "@/shared/ui/";
-import { Layout, HomePage, QuestionPage, NotFoundPage } from "./lazy-imports";
+import { routes } from "./routing/routes";
 import "@/shared/assets/styles/normalize.scss";
 
 function App() {
-  return (
-    <Suspense fallback={<GlobalLoader />}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/questions/:id" element={<QuestionPage />} />
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Suspense>
-  );
+  const routing = useRoutes(routes);
+
+  return <Suspense fallback={<GlobalLoader />}>{routing}</Suspense>;
 }
 
 export default App;
